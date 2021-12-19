@@ -27,7 +27,7 @@ GSEA has two run options:
 2. Provide a pre-ranked list of genes
 
 ## Why GSEA pre-ranked is preferred:
-![**Figure A**](/Data/GSEA_3.PNG)  
+![**Figure A**](/images/GSEA_3.PNG)  
 A complete description is [available here.](http://software.broadinstitute.org/cancer/software/genepattern/modules/docs/GSEAPreranked/1)  
 
 In general, providing the pre-ranked list is preferred option for RNA-Seq analysis. It is recommended to perform ranking of all the genes 
