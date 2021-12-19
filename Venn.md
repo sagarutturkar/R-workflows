@@ -5,6 +5,7 @@ This script will generate Venn diagram with custom lists.
 1. Create empty directory.
 2. Create file with extension `*.venn` containing a venn list.
 3. Generate multiple `*.venn` files, one for each list to compare.
+4. Column name will be used as the name in the Venn diagram.
 
 
 # Quickstart:
