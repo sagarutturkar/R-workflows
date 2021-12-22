@@ -46,6 +46,15 @@ VlnPlot(sample, features = c('percent.mt','percent.ribo'), pt.size = 0)
 FeatureScatter(object=sample, feature1='percent.mt', feature2='nCount_RNA', pt.size = 0.1, plot.cor = F)
 
 ```
+### Transcript (nCount), gene (nFeature) and Low-quality / dying cells (mt) abundance.
+ 
+![**Figure 1**](/images/Seurat_1.png)  
+
+### To identify dead cells/debris and doublets, mitochondrial contents and transcript abundance are plotted together
+
+![**Figure 2**](/images/Seurat_2.png)  
+
+
 
 
 
