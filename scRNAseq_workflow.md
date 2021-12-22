@@ -55,6 +55,56 @@ FeatureScatter(object=sample, feature1='percent.mt', feature2='nCount_RNA', pt.s
 ![**Figure 2**](/images/Seurat_2.png)  
 
 
+## Determine filtering parameters (custom for each data):
+```
+
+ori_cell_count = dim(sample@assays$RNA)[2]
+
+mylist = list()
+mt_cutoff = c(10, 15, 20, 25)
+temp_table = data.frame()
+
+for (i in mt_cutoff) {
+  
+  x <- subset(sample, subset = nFeature_RNA > 200 & nFeature_RNA < 6000 & percent.mt < i)
+  cell_count = dim(x@assays$RNA)[2]
+  myvec = c(ori_cell_count, cell_count)
+  print(myvec)
+  temp_table = rbind(temp_table, myvec)
+  
+}
+
+colnames(temp_table) = c("Original Cell Count", "Filtered Cell Count")
+rownames(temp_table) = c("MT cutoff 10%", "MT cutoff 15%", "MT cutoff 20%", "MT cutoff 25%")
+
+
+temp_table %>%
+  kable(align = "c") %>%
+  kable_styling(c("striped", "bordered"), full_width = T, fixed_thead = T) %>%
+  row_spec(0, bold = T, color = "white", background = "#0571b0") %>%
+  scroll_box(height = "250px", width = "450px")
+
+```
+
+![**Figure 3**](/images/Seurat_3.png)  
+
+```
+# After testing various cutoffs (table above) - we decided to use following filtering parameters
+upper_cutoff = 6000
+lower_cutoff = 200
+MT_cutoff    = 15  
+
+infile = paste0(name,"_base.rds")
+
+sample = readRDS(file = infile)
+
+sample <- subset(sample, subset = nFeature_RNA > lower_cutoff & nFeature_RNA < upper_cutoff & percent.mt < MT_cutoff)
+
+outfile = paste0(name,"_QC.rds")
+saveRDS(sample, file = outfile)
+
+
+```
 
 
 
