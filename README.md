@@ -3,7 +3,7 @@
 | Workflow  | Description                                            |
 |--------------|--------------------------------------------------------|
 | [Quality Control](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_QC.md) | scRNA-seq analysis through Cell-ranger and QC through Seurat |
-| [Single-sample processing]() | Analysis of single-sample through Seurat |
+| [Individual-sample processing]() | Analysis of single-sample through Seurat |
 
 
 # Custom plotting
