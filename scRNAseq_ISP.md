@@ -103,7 +103,7 @@ ElbowPlot(sample, ndims = 50)
 ```
 ![**Figure B**](/images/ISP_1.png)  
 
-## Select parameters **Sample specific** and repeat clustering steps:
+## Select parameters (Customize for each sample) and repeat clustering steps:
 ```
 p = 50
 r = 0.2
