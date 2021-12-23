@@ -33,7 +33,7 @@ We have selected these parameters as below:
 
 5. nExp (Predicted doublet rate) was set based on doublet rate estimation table available through Cell-ranger. But these could also be caluclated [manually](https://github.com/chris-mcginnis-ucsf/DoubletFinder/issues/76) for each sample.  
 
-![**Figure A**](/images/DoubletFinder_1.PNG)  
+![**Figure A**](/images/DoubletFinder_1.png)  
 
 ```
 sweep.res <- paramSweep_v3(sample, PCs = 1:10, sct = TRUE)
@@ -51,8 +51,14 @@ sweep.stats <- summarizeSweep(sweep.res, GT = FALSE)
 homotypic.prop <- modelHomotypic(sample@meta.data$seurat_clusters)           ## ex: annotations <- seu_kidney@meta.data$ClusteringResults
 nExp_poi <- round(0.075*nrow(sample@meta.data))  ## Assuming 7.5% doublet formation rate - tailor for your dataset
 nExp_poi.adj <- round(nExp_poi*(1-homotypic.prop))
+
+bcmvn <- find.pK(sweep.stats)
+
 ```
-## Select the parameters as per the data **(custom for each data)**
+
+![**Figure B**](/images/DoubletFinder_2.png)  
+
+## Select parameters **(custom for each data)**
 ```
 pk_cutoff = 0.005
 pn_cutoff = 0.25
@@ -61,26 +67,17 @@ seu <- doubletFinder_v3(sample, PCs = 1:10, pN = pn_cutoff, pK = pk_cutoff, nExp
 
 outname = paste0(name,".RData")
 save.image(file = outname)
-
 ```
 
-## Plot data
+
+
+## Show doublets
 ```
 name = "sample"
 
 outname = paste0(name,".RData")
 load(file = outname)
 
-bcmvn <- find.pK(sweep.stats)
-
-x = as.data.frame(table(seu@meta.data$DF.classifications_0.25_0.005_843))
-
-x %>%
-  kable(align = "c") %>%
-  kable_styling(c("striped", "bordered"), full_width = T, fixed_thead = T) %>%
-  row_spec(0, bold = T, color = "white", background = "#0571b0") %>%
-  scroll_box(height = "175px", width = "800px")
-
 DimPlot(seu, split.by = "DF.classifications_0.25_0.005_843")
 ```
-
+![**Figure C**](/images/DoubletFinder_3.png)  
