@@ -13,3 +13,10 @@
 |--------------|--------------------------------------------------------|
 | [GSEA_plots](https://github.com/sagarutturkar/R-workflows/blob/main/GSEA_plots.md) | Create dotplot and barplot of enriched GSEA categories |
 | [Venn Diagram](https://github.com/sagarutturkar/R-workflows/blob/main/Venn.md) | Create venn diagram from lists |
+
+# Workflows - Cancer Genomics
+| Workflow  | Description                                            |
+|--------------|--------------------------------------------------------|
+| [Customized downloading of TCGA/GTEX data](https://github.com/sagarutturkar/R-workflows/blob/main/recount3.md) | Download custom data from TCGA/GTEX using recount3 |
+| [Human_canine-transcriptome-comparison](https://github.com/sagarutturkar/R-workflows/blob/main/human_canine_1.md) | Direct comparison of Human-canine transcriptomics data |
+
