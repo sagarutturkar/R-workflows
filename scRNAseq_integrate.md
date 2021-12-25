@@ -16,6 +16,9 @@ library(clustree)
 library(ggraph)
 library(SingleR)
 
+library(future)
+options(future.globals.maxSize = 8000 * 1024^2)
+
 ```
 ## Read data (These are objects saved after QC or DoubletFInder)
 ```
@@ -37,6 +40,9 @@ sample_list
 3. FindIntegrationAnchors 
 4. IntegrateData
 5. RunPCA, RunUMAP, FindNeighbors
+
+> For large number of samples implementation of `library(future)` is essential to incarporate parallel processing.
+
 ```
 sample_list <- lapply(X = sample_list, FUN = SCTransform)
 features <- SelectIntegrationFeatures(object.list = sample_list, nfeatures = 3000)
