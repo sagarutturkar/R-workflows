@@ -5,7 +5,7 @@
 | [Quality Control](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_QC.md) | scRNA-seq analysis through Cell-ranger and QC through Seurat |
 | [DoubletFinder](https://github.com/sagarutturkar/R-workflows/blob/main/DoubletFinder.md) | **Optional**: Find doublets |
 | [Individual-sample processing](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_ISP.md) | Analysis of individual sample through Seurat |
-
+| [Integration-scTransform](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_integrate.md) | Integrate data with scTransform |
 
 # Custom plotting
 
