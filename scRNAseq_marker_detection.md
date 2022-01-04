@@ -58,6 +58,17 @@ markers %>%
     slice_max(n = 5, order_by = avg_log2FC)
 ```
 
+## Top 5 marker genes visualizations
+```
+DoHeatmap(subset(sample, downsample = 300), features = top5$gene) + NoLegend()
+
+DotPlot(sample, features = top5$gene) + RotatedAxis()
+```
+![**Dotplot**](/images/scRNAseq_markerViz_1.png) 
+![**Hetmap**](/images/scRNAseq_markerViz_2.png) 
+
+
+
 ## Find DE genes across treatments (irrespetive of clusters)
 We assume there are two conditions `tumor-1` and `tumor-2` and determine DE genes across treatments
 ```
