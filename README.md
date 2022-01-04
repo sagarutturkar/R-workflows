@@ -7,6 +7,10 @@
 | [Individual-sample processing](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_ISP.md) | Analysis of individual sample through Seurat |
 | [Integration-scTransform](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_integrate.md) | Integrate data with scTransform |
 | [marker_and_DE Genes](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_marker_detection.md) | Detection of marker and DE genes across clusters and treatments |
+| [scRNAseq_Pathways](https://github.com/sagarutturkar/R-workflows/blob/main/scRNAseq_pathways.md) | Pathway Enrichment Analysis for each cluster |
+
+
+
 
 # Custom plotting
 
