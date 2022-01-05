@@ -48,6 +48,16 @@ outname = paste0(name,"_SCT.rds")
 saveRDS(sample, file = outname )
 ```
 
+## Elbowplot:
+
+Identifying the true dimensionality of a dataset and the most significant PC can be challenging/uncertain. Elbowplot method generates a ranking of principle components based on the percentage of variance explained by each one. 
+In this example, we can observe an **elbow** (i.e. beginning of the straight line) somewhere between PC 40-50, suggesting that the majority of true signal is captured in the first 50 PCs.
+
+```
+ElbowPlot(sample, ndims = 50)
+```
+![**Figure B**](/images/ISP_1.png)  
+
 ## Optimal resolution detection through Clustree
 Clustering is a core tool for analysing single-cell RNA-sequencing (scRNA-seq) datasets. The clustering is primarily controlled by two parameters, number of principle components and then resolution.
 A clustering tree visualises the relationships between at a range of resolutions.
@@ -90,18 +100,6 @@ for (r in as.numeric(res)) {
 
 dev.off()
 ```
-
-
-
-## Elbowplot:
-
-Identifying the true dimensionality of a dataset and the most significant PC can be challenging/uncertain. Elbowplot method generates a ranking of principle components based on the percentage of variance explained by each one. 
-In this example, we can observe an **elbow** (i.e. beginning of the straight line) somewhere between PC 40-50, suggesting that the majority of true signal is captured in the first 50 PCs.
-
-```
-ElbowPlot(sample, ndims = 50)
-```
-![**Figure B**](/images/ISP_1.png)  
 
 ## Select parameters (Customize for each sample) and repeat clustering steps:
 ```
