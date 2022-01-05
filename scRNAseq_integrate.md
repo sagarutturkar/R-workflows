@@ -59,6 +59,24 @@ combined.sct <- RunUMAP(combined.sct, reduction = "pca", dims = 1:50)
 combined.sct <- FindNeighbors(combined.sct, dims = 1:50)
 
 ```
+## Elbowplot:
+
+Identifying the true dimensionality of a dataset and the most significant PC can be challenging/uncertain. Elbowplot method generates a ranking of principle components based on the percentage of variance explained by each one. 
+In this example, we can observe an **elbow** (i.e. beginning of the straight line) somewhere between PC 40-50, suggesting that the majority of true signal is captured in the first 50 PCs.
+
+```
+name = "Tumor"
+outname = paste0(name,"_SCT.rds")
+sample = readRDS(file = outname )
+
+p = 20
+r = 0.3
+
+title = paste0("nPCs = ", p,", resolution = ", r) 
+
+ElbowPlot(sample, ndims = 50)
+```
+![**Figure B**](/images/ISP_1.png)  
 
 ## Optimal resolution detection through Clustree
 Clustering is a core tool for analysing single-cell RNA-sequencing (scRNA-seq) datasets. The clustering is primarily controlled by two parameters, number of principle components and then resolution.
@@ -104,24 +122,6 @@ for (r in as.numeric(res)) {
 dev.off()
 
 ```
-## Elbowplot:
-
-Identifying the true dimensionality of a dataset and the most significant PC can be challenging/uncertain. Elbowplot method generates a ranking of principle components based on the percentage of variance explained by each one. 
-In this example, we can observe an **elbow** (i.e. beginning of the straight line) somewhere between PC 40-50, suggesting that the majority of true signal is captured in the first 50 PCs.
-
-```
-name = "Tumor"
-outname = paste0(name,"_SCT.rds")
-sample = readRDS(file = outname )
-
-p = 20
-r = 0.3
-
-title = paste0("nPCs = ", p,", resolution = ", r) 
-
-ElbowPlot(sample, ndims = 50)
-```
-![**Figure B**](/images/ISP_1.png)  
 
 ## Show dimension plot (dimPlot)
 ```
@@ -137,7 +137,7 @@ title = paste0("nPCs = ", p,", resolution = ", r)
 DimPlot(sample , reduction = "umap", label = TRUE, label.size = 6) + ggtitle(title)
 ```
 
-![**Figure C**](/images/scRNAseq_integrate_1.png.png)  
+![**Figure C**](/images/scRNAseq_integrate_1.png)  
 
 
 ## SingleR cell type assignment
@@ -213,7 +213,7 @@ cell_counts %>%
 ```
 
 
-### ## Assignment by Immunological Genome Project (ImmGen)
+###  Assignment by Immunological Genome Project (ImmGen)
 The ImmGen reference consists of microarray profiles of pure mouse immune cells. This is currently the most highly resolved immune reference - possibly overwhelmingly so, given the granularity of the fine labels.
 
 ```
