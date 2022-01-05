@@ -182,7 +182,7 @@ cell_counts %>%
 
 ![**Figure F**](/images/ISP_5.png)  
 
-### ## Assignment by Immunological Genome Project (ImmGen)
+### Assignment by Immunological Genome Project (ImmGen)
 The ImmGen reference consists of microarray profiles of pure mouse immune cells. This is currently the most highly resolved immune reference - possibly overwhelmingly so, given the granularity of the fine labels.
 
 ```
